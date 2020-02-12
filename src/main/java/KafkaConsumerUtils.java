@@ -26,14 +26,7 @@ public class KafkaConsumerUtils {
     private static final String EVENT_INP_STREAM = "event-input-stream";
     public static Map<String,String> custMap = new HashMap<>();
 
-    @GET
-    @Path("/txn-event/{custId}")
-    @javax.ws.rs.Produces(MediaType.APPLICATION_JSON)
-    public String getCase(String json,@javax.ws.rs.PathParam("custId") String customerId) {
-        System.out.println("inside getCase");
 
-        return custMap.get(customerId);
-    }
 
     @Produces
     public Topology buildTopology() {
