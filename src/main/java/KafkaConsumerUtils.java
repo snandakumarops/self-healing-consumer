@@ -23,7 +23,7 @@ import java.util.Map;
 public class KafkaConsumerUtils {
 
 
-    private static final String EVENT_INP_STREAM = "event-input-stream";
+    private static final String EVENT_INP_STREAM = "offer-output";
     public static Map<String,String> custMap = new HashMap<>();
 
 
