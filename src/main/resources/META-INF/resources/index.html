@@ -32,8 +32,8 @@ $http({
 
     })
     .then(function(response) {
-		alert(response);
-           $scope.offer = JSON.stringify(response);
+		alert(response.data);
+           $scope.offer = JSON.stringify(response.data);
 
     },
     function(response) { // optional
