@@ -41,6 +41,9 @@ public class TopologyProducer {
 
         System.out.println(clusterKeyValueMap.get("\""+customerId+"\""));
 
-        return null;
+        LinkedHashMap<String,String> mapVal = new Gson().fromJson(clusterKeyValueMap.get("\""+customerId+"\""),LinkedHashMap.class);
+
+
+        return  mapVal.get("activeOffers");
     }
 }

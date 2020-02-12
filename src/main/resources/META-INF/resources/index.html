@@ -25,7 +25,7 @@ var app = angular.module('myApp', []);
 app.controller('FormController', function($scope,$http) {
 var baseURL = window.location.protocol + '//' + window.location.host;
 
-
+ $scope.checkMyOffers = function() {
 $http({
         url: baseURL+'/events/txn-event/CUST894320',
         method: "GET"
@@ -42,7 +42,7 @@ $http({
 
     });
 
-
+}
 
 
 });
@@ -87,6 +87,7 @@ $http({
 				<div class="main_title" >
 
 					<p><h1>Turn your everyday purchases in to something big with our rewards program!</h1></p>
+					<button ng-click="checkMyOffers()">Check My Offers</button>
 					<h6 >{{off}}</h6>
 				</div>
 
