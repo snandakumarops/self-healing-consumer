@@ -37,6 +37,7 @@ public class TopologyProducer {
         } catch (Exception e) {
             throw new IllegalStateException("Infra Manager State Store not initialized ", e);
         }
+        System.out.println("customerId"+customerId);
 
         System.out.println(clusterKeyValueMap.get(customerId));
         return null;
