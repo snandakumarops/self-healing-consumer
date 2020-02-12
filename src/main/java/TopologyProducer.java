@@ -1,3 +1,4 @@
+import com.google.gson.Gson;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.state.KeyValueIterator;
@@ -10,6 +11,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Path("/events")
@@ -35,6 +37,8 @@ public class TopologyProducer {
         } catch (Exception e) {
             throw new IllegalStateException("Infra Manager State Store not initialized ", e);
         }
-        return clusterKeyValueMap.toString();
+        LinkedHashMap<String,String> mapVal = new Gson().fromJson(clusterKeyValueMap.get(customerId),LinkedHashMap.class);
+
+        return mapVal.get("activeOffers");
     }
 }
