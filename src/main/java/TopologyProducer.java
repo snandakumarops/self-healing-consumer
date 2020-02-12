@@ -39,7 +39,7 @@ public class TopologyProducer {
         }
         System.out.println("customerId"+customerId);
 
-        System.out.println(clusterKeyValueMap.get(customerId));
+        System.out.println(clusterKeyValueMap.keySet());
         return null;
     }
 }
