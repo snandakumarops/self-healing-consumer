@@ -38,7 +38,7 @@ public class TopologyProducer {
             throw new IllegalStateException("Infra Manager State Store not initialized ", e);
         }
         LinkedHashMap<String,String> mapVal = new Gson().fromJson(clusterKeyValueMap.get(customerId),LinkedHashMap.class);
-
+        System.out.println(mapVal.keySet());
         return mapVal.get("activeOffers");
     }
 }
