@@ -26,9 +26,6 @@ app.controller('FormController', function($scope,$http) {
 var baseURL = window.location.protocol + '//' + window.location.host;
 
 
-$scope.insertLoginEvent = function() {
-
-
 $http({
         url: baseURL+'/events/txn-event/CUST894320',
         method: "GET"
@@ -47,7 +44,7 @@ $http({
 
 
 
-}
+
 });
 </script>
     </head>
