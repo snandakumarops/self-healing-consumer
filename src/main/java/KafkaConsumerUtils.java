@@ -3,6 +3,8 @@ import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.Consumed;
+import org.apache.kafka.streams.kstream.GlobalKTable;
+import org.apache.kafka.streams.kstream.Materialized;
 import org.apache.kafka.streams.kstream.Printed;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -16,7 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-@Path("/events")
+
 @ApplicationScoped
 public class KafkaConsumerUtils {
 
@@ -28,6 +30,7 @@ public class KafkaConsumerUtils {
     @Path("/txn-event/{custId}")
     @javax.ws.rs.Produces(MediaType.APPLICATION_JSON)
     public String getCase(String json,@javax.ws.rs.PathParam("custId") String customerId) {
+        System.out.println("inside getCase");
 
         return custMap.get(customerId);
     }
@@ -36,20 +39,16 @@ public class KafkaConsumerUtils {
     public Topology buildTopology() {
         StreamsBuilder builder = new StreamsBuilder();
 
-
-        builder.stream(
+        GlobalKTable<String, String> stations = builder.globalTable(
                 EVENT_INP_STREAM,
-                Consumed.with(Serdes.String(), Serdes.String())
-        ).map((x,y) -> new KeyValue<String,String>(x,processEvent(x,y)));
+                Consumed.with(Serdes.String(), Serdes.String()),Materialized.as("CountsWindowStore"));
 
         return builder.build();
     }
 
-    public String processEvent(String key, String value) {
-        custMap.put(key,value);
-        System.out.println(custMap);
-        return value;
-    }
+
+
+
 
 
 }
