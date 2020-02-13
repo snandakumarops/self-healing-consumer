@@ -43,7 +43,8 @@ public class TopologyProducer {
 
         LinkedHashMap<String,String> mapVal = new Gson().fromJson(clusterKeyValueMap.get("\""+customerId+"\""),LinkedHashMap.class);
 
-
-        return  new Gson().toJson(mapVal.get("activeOffers"));
+        Map<String,String> mapValues= new HashMap<>();
+        mapValues.put("activeOffers", mapVal.get("activeOffers"));
+        return new Gson().toJson(mapValues);
     }
 }
