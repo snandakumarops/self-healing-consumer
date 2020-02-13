@@ -33,7 +33,7 @@ $http({
     })
     .then(function(response) {
 
-           $scope.offer = response;
+           $scope.offer = response.data;
            console.log ($scope.offer);
 
     },
