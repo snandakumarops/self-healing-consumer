@@ -40,9 +40,9 @@ public class TopologyProducer {
         System.out.println("customerId"+customerId);
 
 
-        System.out.println(clusterKeyValueMap.get(customerId);
+        System.out.println(clusterKeyValueMap.get(customerId));
 
-        LinkedHashMap<String,String> mapVal = new Gson().fromJson(clusterKeyValueMap.get("\""+customerId+"\""),LinkedHashMap.class);
+        LinkedHashMap<String,String> mapVal = new Gson().fromJson(clusterKeyValueMap.get(customerId),LinkedHashMap.class);
 
         Map<String,String> mapValues= new HashMap<>();
         mapValues.put("activeOffers", mapVal.get("activeOffers"));
