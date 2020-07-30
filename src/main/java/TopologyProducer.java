@@ -1,4 +1,3 @@
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import datamodels.example.ApbRuns;
 import datamodels.example.Example;
@@ -7,7 +6,6 @@ import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.state.KeyValueIterator;
 import org.apache.kafka.streams.state.QueryableStoreTypes;
 import org.apache.kafka.streams.state.ReadOnlyKeyValueStore;
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -16,7 +14,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Path("/events")
