@@ -83,6 +83,8 @@ public class TopologyProducer {
 
            Date currentDate = new Date(apbRuns.getRunDate());
            mapValues.put("lastRunDate", currentDate);
+       } else {
+           mapValues.put("createIncidentMap",  "Yes");
        }
         Date eventDate = new Date(example.getCheck().getExecuted());
         mapValues.put("eventDate",eventDate);
